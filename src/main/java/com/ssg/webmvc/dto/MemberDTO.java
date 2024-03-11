@@ -1,17 +1,18 @@
-package com.ssg.webmvc.domain;
+package com.ssg.webmvc.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.Date;
 
-@Getter
-@ToString
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class MemberVO {
+public class MemberDTO {
     private String id;
     private String username;
     private String email;
