@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @WebFilter(urlPatterns = {"/member/*"})
 @Log4j2
-public class LoginCehckFilter implements Filter {
+public class LoginCheckFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         log.info("Login Check Filter");
