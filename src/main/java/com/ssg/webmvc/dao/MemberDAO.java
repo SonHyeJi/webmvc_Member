@@ -15,7 +15,7 @@ import java.util.List;
 public class MemberDAO {
 
     public List<MemberVO> memberlistAll() throws Exception{
-        String sql = "select * from Users";
+        String sql = "select * from mvc_member";
 
         @Cleanup Connection conn = ConnectionUtill.INSTANCE.getConnection();
         @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -36,7 +36,7 @@ public class MemberDAO {
     }
 
     public void register(MemberVO memberVO) throws Exception{
-        String sql = "INSERT INTO users(id, password, username, email, joindate) VALUES (?,?,?,?,now())";
+        String sql = "INSERT INTO mvc_member(id, password, username, email, joindate) VALUES (?,?,?,?,now())";
 
         @Cleanup Connection conn = ConnectionUtill.INSTANCE.getConnection();
         @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -51,7 +51,7 @@ public class MemberDAO {
 
     public MemberVO listone(String id) throws Exception{
 
-        String sql = "select * from users where id = ?";
+        String sql = "select * from mvc_member where id = ?";
 
         @Cleanup Connection conn = ConnectionUtill.INSTANCE.getConnection();
         @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -72,7 +72,7 @@ public class MemberDAO {
     public int update(MemberVO memberVO) throws Exception{
         int ack=0;
 
-        String sql = "update users set password=?, username=?, email=? where id = ?";
+        String sql = "update mvc_member set password=?, username=?, email=? where id = ?";
 
         @Cleanup Connection conn = ConnectionUtill.INSTANCE.getConnection();
         @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -89,7 +89,7 @@ public class MemberDAO {
     }
 
     public void delete(String id) throws Exception{
-        String sql = "delete from users where id = ?";
+        String sql = "delete from mvc_member where id = ?";
 
         @Cleanup Connection conn = ConnectionUtill.INSTANCE.getConnection();
         @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -100,7 +100,7 @@ public class MemberDAO {
     }
 
     public MemberVO login(String id, String password) throws Exception {
-        String sql = "select id, password, username, email from users where id =? and password= ?";
+        String sql = "select id, password, username, email from mvc_member where id =? and password= ?";
 
         MemberVO memberVO;
 
